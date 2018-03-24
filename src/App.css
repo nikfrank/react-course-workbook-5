@@ -55,3 +55,7 @@
 .Ball .court > .paint {
   fill: #80dfdf;
 }
+
+.Ball .court > .rim {
+  stroke: black;
+}

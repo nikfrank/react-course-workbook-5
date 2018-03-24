@@ -2,10 +2,38 @@ import React, { Component } from 'react';
 import ball from './logo.svg';
 import './App.css';
 
+import Court from './Court';
+
+const None = 'none';
+
+const movements = [
+  3, //quarter
+  1431486313010, // uuid ? epoch time?
+  715.32, // seconds remaining in quarter
+  19.0, // seconds remaining on shot clock
+  None, // unknown
+  [
+    [-1, -1, 43.51745, 10.76997, 1.11823],
+    // ball: [ teamId null, playerId null, x, y, r (bigger means higher) ]
+    
+    [1610612745, 1891, 50.81625, 12.9461, 0.0],
+    // player: [ teamId, playerId, x, y, radius null ]
+    
+    [1610612745, 2772, 90.84496, 7.79534, 0.0],
+    [1610612745, 2730, 77.19964, 34.36718, 0.0],
+    [1610612745, 2746, 48.24382, 21.14748, 0.0],
+    [1610612745, 201935, 81.0992, 48.10742, 0.0],
+    [1610612745, 1935, 61.0992, 18.10742, 0.0],
+    
+    [1610612746, 2440, 88.12605, 11.23036, 0.0],
+    [1610612746, 200755, 84.41011, 43.47075, 0.0],
+    [1610612746, 101108, 48.18569, 16.49072, 0.0],
+    [1610612746, 201599, 78.64683, 31.87798, 0.0],
+    [1610612746, 201933, 65.89714, 25.57281, 0.0]
+  ]
+];
+
 class App extends Component {
-  state = {
-  }
-  
   render() {
     return (
       <div className='Ball'>
@@ -14,50 +42,9 @@ class App extends Component {
         </header>
         <div className='Ball-body'>
           
-          <svg viewBox='0 0 500 470' className='court'>
-            <rect x='0' y='0' width='500' height='470' className='hardwood line'/>
-
-            <rect x='190' y='0' width='120' height='190' className='line paint'/>
-            
-            <path d='M 30,0  L 30,138 A 237.5 237.5 0 0 0 470 138 L 470,0'
-                  className='three-pt-line line'/>
-
-            <circle cx='250' cy='52.5' r='7.5' className='rim line'/>
-            <path d='M 220,40 L 280, 40' className='glass line'/>
-            <path d='M 210,52.5 A 40 40 0 0 0 290 52.5' className='restricted line'/>
-
-            {/* free throw circle */}
-            <path d='M 190,190 A 60 60 0 0 0 310 190' className='line'/>
-            <path d='M 190,190 A 60 60 0 0 1 310 190' className='dashed line'/>
-
-            {/* post, free throw markers */}
-            <rect x='170' y='0' width='20' height='190' className='line'/>
-            <rect x='310' y='0' width='20' height='190' className='line'/>
-
-            <path d='M 170, 70.83 L 160, 70.83' className='line'/>
-            <path d='M 170, 82.5 L 160, 82.5' className='line'/>
-            <path d='M 170, 114.17 L 160, 114.17' className='line'/>
-            <path d='M 170, 145.83 L 160, 145.83' className='line'/>
-
-            <path d='M 330, 70.83 L 340, 70.83' className='line'/>
-            <path d='M 330, 82.5 L 340, 82.5' className='line'/>
-            <path d='M 330, 114.17 L 340, 114.17' className='line'/>
-            <path d='M 330, 145.83 L 340, 145.83' className='line'/>
-
-            {/* inbound markers */}
-
-            <path d='M 0, 280 L 30, 280' className='line'/>
-            <path d='M 500, 280 L 470, 280' className='line'/>
-            
-            <path d='M 140, 0 L 140, 10' className='line'/>
-            <path d='M 360, 0 L 360, 10' className='line'/>
-
-            {/* tip off circle */}
-
-            <path d='M 190, 470 A 60 60 0 0 1 310 470' className='line'/>
-            <path d='M 230, 470 A 20 20 0 0 1 270 470' className='line'/>
-            
-          </svg>
+          <Court ball={movements[5][0].slice(2, 4)}
+                 homeTeam={movements[5].slice(1,6)}
+                 roadTeam={movements[5].slice(6,11)}/>
           
         </div>
       </div>

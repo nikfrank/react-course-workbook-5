@@ -1,0 +1,57 @@
+.Ball {
+  text-align: center;
+}
+
+.Ball-logo {
+  animation: ball-logo-spin infinite 10s linear;
+  height: 40px;
+  position: absolute;
+  left: calc( 50% - 20px );
+  top: 5px;
+}
+
+.Ball-header {
+  background-color: #fa5;
+  height: 50px;
+  color: black;
+}
+
+
+@keyframes ball-logo-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.Ball .court {
+  height: calc( 100vh - 60px );
+  max-height: 94vw;
+  width: auto;
+  margin: 3px auto;
+}
+
+.Ball .court > .line {
+  fill: none;
+  stroke: #00bfbf;
+  strokeWidth: 2;
+  strokeLinecap: butt;
+  strokeLinejoin: miter;
+  strokeMiterlimit: 3.86360002;
+  strokeDasharray: none;
+  strokeOpacity: 1;
+}
+
+.Ball .court > .hardwood {
+  fill: #ffcc80;
+}
+
+.Ball .court > .dashed {
+  stroke-dasharray: 5, 5;
+}
+
+.Ball .court > .paint {
+  fill: #80dfdf;
+}
